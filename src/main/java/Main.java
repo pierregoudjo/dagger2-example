@@ -6,11 +6,11 @@ public class Main {
 
     @Singleton
     @Component(modules = BillingModule.class)
-    public interface Module {
+    public interface BillingComponent {
         BillingService getService();
     }
     public static void main(String[] args) {
-        Module module = DaggerMain_Module.builder().build();
+        BillingComponent module = DaggerMain_BillingComponent.create();
         BillingService service = module.getService();
         System.out.println(service.getProcessor().getClass());
         System.out.println(service.getTransactionLog().getClass());
